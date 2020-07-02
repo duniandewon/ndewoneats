@@ -18,14 +18,16 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// @TODO: connext to database
+// Connect to database
+connectDB();
+const db = mongoose.connection;
 
 /**
  * ----------------- SESSIONS SETUP ------------------------
  */
 
 const sessionStore = new MongoStore({
-  mongooseConnection: connectDB,
+  mongooseConnection: db,
   collection: 'sessions',
 });
 
@@ -45,11 +47,16 @@ app.use(
  * ----------------- PASSPORT SETUP ------------------------
  */
 
-// @TODO: Setup passport
+require('./config/passport');
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 /**
  * ----------------- ROUTES ------------------------
  */
+
+app.use('/api/users', require('./routes/users'));
 
 // @TODO: Setup routes
 

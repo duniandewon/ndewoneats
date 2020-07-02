@@ -7,6 +7,14 @@ const options = {
   useUnifiedTopology: true,
 };
 
-const connect = mongoose.createConnection(URI, options);
+const connectDB = async () => {
+  try {
+    await mongoose.connect(URI, options);
+    console.log('Database connected!');
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+};
 
-module.exports = connect;
+module.exports = connectDB;
