@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -22,7 +24,22 @@ app.use(express.urlencoded({ extended: true }));
  * ----------------- SESSIONS SETUP ------------------------
  */
 
-// @TODO: Setup sessions
+const sessionStore = new MongoStore({
+  mongooseConnection: connectDB,
+  collection: 'sessions',
+});
+
+app.use(
+  session({
+    secret: 'some secret word',
+    resave: false,
+    saveUninitialized: true,
+    store: sessionStore,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+  })
+);
 
 /**
  * ----------------- PASSPORT SETUP ------------------------
