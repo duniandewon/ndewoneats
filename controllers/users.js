@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 module.exports = {
   registerUser: async (req, res) => {
-    const { name, username, email, password } = req.body;
+    const { name, username, email, password, isAdmin } = req.body;
 
     if (!name) return res.status(400).json({ msg: 'Name should not be empty' });
     // if (!username)
@@ -32,6 +32,7 @@ module.exports = {
         name,
         username,
         email,
+        isAdmin,
         hash,
         salt,
       });
