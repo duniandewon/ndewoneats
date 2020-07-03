@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { isAuth } = require('../lib/authMiddleware');
-const { loginUser } = require('../controllers/auth');
+const { loginUser, updatePassword } = require('../controllers/auth');
 
 /**
  * @route   GET /api/auth
@@ -16,6 +16,13 @@ router.get('/', isAuth, (req, res) => res.json(req.user));
  * @access  Public
  */
 router.post('/', loginUser);
+
+/**
+ * @route   POST /api/auth/update_password
+ * @desc    Update user's password
+ * @access  Private
+ */
+router.post('/update_password', isAuth, updatePassword);
 
 /**
  * @route   GET /api/auth/logout
