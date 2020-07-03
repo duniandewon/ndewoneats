@@ -18,7 +18,6 @@ module.exports = {
           return next(err);
         }
 
-        console.log(req.session);
         return res.json(user);
       });
     })(req, res, next);
