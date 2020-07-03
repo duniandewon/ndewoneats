@@ -6,8 +6,8 @@ module.exports = {
     const { name, username, email, password } = req.body;
 
     if (!name) return res.status(400).json({ msg: 'Name should not be empty' });
-    if (!username)
-      return res.status(400).json({ msg: 'Usename should not be empty' });
+    // if (!username)
+    //   return res.status(400).json({ msg: 'Usename should not be empty' });
     if (!email)
       return res.status(400).json({ msg: 'Email should not be empty' });
     if (!password)

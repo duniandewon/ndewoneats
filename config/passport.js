@@ -3,9 +3,14 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/User');
 const { validPassword } = require('../lib/passwordUtils');
 
+const customFields = {
+  usernameField: 'email',
+  passwordField: 'password',
+};
+
 const varifyCallback = async (username, password, done) => {
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email: username });
 
     if (!user) {
       return done(null, false);
@@ -23,7 +28,7 @@ const varifyCallback = async (username, password, done) => {
   }
 };
 
-const strayegy = new LocalStrategy(varifyCallback);
+const strayegy = new LocalStrategy(customFields, varifyCallback);
 
 passport.use(strayegy);
 
