@@ -13,36 +13,34 @@ module.exports = {
     if (!password)
       return res.status(400).json({ msg: 'Password should not be empty' });
 
-    try {
-      const saltHash = genPassword(password);
+    const saltHash = genPassword(password);
 
-      const salt = saltHash.salt;
-      const hash = saltHash.hash;
+    const salt = saltHash.salt;
+    const hash = saltHash.hash;
 
-      // Check if user with the same email already exist
-      let user = await User.findOne({ email });
+    // Check if user with the same email already exist
+    let user = await User.findOne({ email });
 
-      if (user) {
-        return res
-          .status(400)
-          .json({ msg: 'User with the same email already exists' });
-      }
-
-      user = new User({
-        name,
-        username,
-        email,
-        isAdmin,
-        hash,
-        salt,
-      });
-
-      await user.save();
-
-      res.json({ user });
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server error');
+    if (user) {
+      return res
+        .status(400)
+        .json({ msg: 'User with the same email already exists' });
     }
+
+    user = new User({
+      name,
+      username,
+      email,
+      isAdmin,
+      hash,
+      salt,
+    });
+
+    await user.save();
+
+    res.json({ user });
+
+    console.error(err.message);
+    res.status(500).send('Server error');
   },
 };

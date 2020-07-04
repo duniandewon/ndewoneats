@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { isAuth } = require('../lib/authMiddleware');
 const { loginUser, updatePassword } = require('../controllers/auth');
+const { asyncErrorHandler } = require('../lib/errorHandlers');
 
 /**
  * @route   GET /api/auth
@@ -22,7 +23,7 @@ router.post('/', loginUser);
  * @desc    Update user's password
  * @access  Private
  */
-router.post('/update_password', isAuth, updatePassword);
+router.post('/update_password', isAuth, asyncErrorHandler(updatePassword));
 
 /**
  * @route   GET /api/auth/logout
