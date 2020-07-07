@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Logo from '../assets/images/logo.svg';
 
-const MainNav = () => {
+const MainNav = ({ auth: { isAuth, user } }) => {
   return (
     <nav className='main-nav container'>
       <button className='drawer-toggler hide-on-desktop'>
@@ -26,15 +28,15 @@ const MainNav = () => {
       </Link>
       <ul className='nav'>
         <li className='nav__item'>
-          {/* {isAuthenticated && user ? ( */}
-          <Link to='/my-account/orders' className='nav__link hide-on-mobile'>
-            my acount
-          </Link>
-          {/* ) : ( */}
-          <Link to='/login' className='nav__link hide-on-mobile'>
-            login
-          </Link>
-          {/* )} */}
+          {isAuth && user ? (
+            <Link to='/my-account/orders' className='nav__link hide-on-mobile'>
+              my acount
+            </Link>
+          ) : (
+            <Link to='/login' className='nav__link hide-on-mobile'>
+              login
+            </Link>
+          )}
         </li>
         {/* <li className='nav__item'>
           <ShoppingCart />
@@ -44,4 +46,12 @@ const MainNav = () => {
   );
 };
 
-export default MainNav;
+MainNav.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(MainNav);
