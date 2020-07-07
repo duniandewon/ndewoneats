@@ -1,0 +1,13 @@
+.nav {
+  @extend %flex-align-center;
+
+  &__item + &__item {
+    margin-left: 2.5rem;
+  }
+
+  &__link {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+}

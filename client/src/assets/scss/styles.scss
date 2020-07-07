@@ -4,6 +4,11 @@
 @import './abstract/placeholders';
 
 @import './base/base';
+@import './base/display';
 
 @import './layout/container';
 @import './layout/footer';
+@import './layout/main-nav';
+
+@import './components/nav';
+@import './components/logo';

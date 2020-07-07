@@ -1,0 +1,6 @@
+.main-nav {
+  @extend %flex-space-between-align-center;
+  @extend %py-3;
+  position: relative;
+  background-color: $dark;
+}
