@@ -1,0 +1,18 @@
+.btn {
+  color: #fff;
+  padding: 1rem;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  &.primary {
+    background-color: $main-color;
+  }
+
+  &.block {
+    display: block;
+  }
+}

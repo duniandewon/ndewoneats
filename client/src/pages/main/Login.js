@@ -67,7 +67,7 @@ const Login = (props) => {
               required
             />
           </div>
-          <button className='btn'>Login</button>
+          <button className='btn primary'>Login</button>
           <Link to='/accounts/reset-password' className='link'>
             Forgot password
           </Link>
