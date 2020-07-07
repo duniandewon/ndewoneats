@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 /** Redux */
 import { Provider } from 'react-redux';
@@ -11,6 +11,8 @@ import Header from './layout/Header';
 import Footer from './layout/Footer';
 
 /** Pages */
+import Home from './pages/main/Home';
+import Login from './pages/main/Login';
 
 /** Styles */
 import './assets/scss/styles.scss';
@@ -21,7 +23,10 @@ const App = () => {
       <Router>
         <Header />
         <Main>
-          <h1>Hello</h1>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
         </Main>
         <Footer />
       </Router>

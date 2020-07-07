@@ -1,0 +1,53 @@
+.auth {
+  @extend %boxShadow-2;
+  @extend %border-radius-2;
+  max-width: 40rem;
+  margin: 3rem auto;
+
+  &__form,
+  &__non-member,
+  &__member {
+    padding: 4rem;
+  }
+
+  &__non-member,
+  &__member {
+    @extend %flex-space-between-align-center;
+    border-top: 1px solid #e0e0e0;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    @media (max-width: 450px) {
+      flex-direction: column;
+
+      h2 {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .title,
+  .subtitle {
+    text-align: center;
+  }
+
+  .title {
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .link {
+    display: block;
+    text-align: center;
+  }
+
+  .btn + .link {
+    margin-top: 1.5rem;
+  }
+}
