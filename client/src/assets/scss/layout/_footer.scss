@@ -1,0 +1,72 @@
+.footer {
+  @extend %py-2;
+  background-color: $dark;
+  color: #fff;
+
+  .contacts {
+    @extend %my-1;
+    @extend %flex-align-center;
+
+    .phone {
+      @extend %flex-align-center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+
+      span {
+        margin-left: 5px;
+      }
+    }
+
+    .socials {
+      margin-left: 2rem;
+
+      img {
+        width: 2rem;
+      }
+
+      a + a {
+        margin-left: 2rem;
+      }
+    }
+  }
+
+  .tos {
+    @extend %flex-align-center;
+    color: #929292;
+
+    a {
+      color: inherit;
+    }
+
+    * + * {
+      margin-left: 2rem;
+      padding-left: 2rem;
+      border-left: 1px solid #929292;
+    }
+  }
+
+  @media (max-width: 912px) {
+    text-align: center;
+
+    .contacts {
+      flex-direction: column;
+
+      .phone {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .tos {
+      flex-direction: column;
+      text-align: center;
+
+      * + * {
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  }
+}

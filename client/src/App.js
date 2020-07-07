@@ -5,11 +5,25 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
+/** Layout */
+import Main from './layout/Main';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+
+/** Pages */
+
+/** Styles */
+import './assets/scss/styles.scss';
+
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <h1>Hello</h1>
+        <Header />
+        <Main>
+          <h1>Hello</h1>
+        </Main>
+        <Footer />
       </Router>
     </Provider>
   );
