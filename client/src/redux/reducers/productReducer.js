@@ -1,7 +1,13 @@
-import { GET_PRODUCTS_SUCCESS, GET_PRODUCTS_FAIL, SET_LOADING } from '../types';
+import {
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_FAIL,
+  SET_LOADING,
+  GET_PRODUCT,
+} from '../types';
 
 const initialState = {
   products: null,
+  product: null,
   loading: false,
   error: null,
 };
@@ -13,6 +19,12 @@ export default (state = initialState, action) => {
         ...state,
         products: action.payload,
         loading: false,
+      };
+
+    case GET_PRODUCT:
+      return {
+        ...state,
+        product: action.payload,
       };
 
     case SET_LOADING:

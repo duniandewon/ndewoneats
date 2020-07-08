@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getProducts, setLoading } from '../../redux/actions/productActions';
+import {
+  getProducts,
+  setLoading,
+  getProductDetail,
+} from '../../redux/actions/productActions';
 import { loadUser } from '../../redux/actions/authActions';
 import Product from '../../components/Product';
 
@@ -10,6 +14,7 @@ const Promo = ({
   loadUser,
   getProducts,
   setLoading,
+  getProductDetail,
 }) => {
   useEffect(() => {
     setLoading();
@@ -33,7 +38,7 @@ const Promo = ({
                 product={product}
                 // addToCart={addToCart}
                 // toggleCount={toggleCount}
-                getProducts={getProducts}
+                getProductDetail={getProductDetail}
                 // toggleUi={toggleUi}
               />
             )
@@ -45,12 +50,16 @@ const Promo = ({
 Promo.propTypes = {
   loadUser: PropTypes.func.isRequired,
   getProducts: PropTypes.func.isRequired,
+  getProductDetail: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   products: state.products,
 });
 
-export default connect(mapStateToProps, { loadUser, getProducts, setLoading })(
-  Promo
-);
+export default connect(mapStateToProps, {
+  loadUser,
+  getProducts,
+  setLoading,
+  getProductDetail,
+})(Promo);

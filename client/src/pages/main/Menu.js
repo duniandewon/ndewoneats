@@ -7,6 +7,7 @@ import SearchBox from '../../components/SearchBox';
 import Promo from '../products/Promo';
 import Pizza from '../products/Pizza';
 import Pasta from '../products/Pasta';
+import ProductDetail from '../../components/ProductDetail';
 
 const Menu = () => {
   const links = [
@@ -22,6 +23,7 @@ const Menu = () => {
 
   return (
     <Fragment>
+      <ProductDetail />
       <div className='wrapper'>
         <SideNav links={links}>
           <SearchBox />

@@ -1,0 +1,31 @@
+.product-detail {
+  @extend %border-radius-1;
+  padding: 2.5rem;
+
+  h3 + p {
+    @extend %mt-1;
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+.product {
+  &__img {
+    @extend %mb-1;
+  }
+
+  &__action {
+    @extend %flex-align-center;
+    @extend %mt-1;
+
+    p {
+      width: 100%;
+      flex-grow: 1;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+  }
+}

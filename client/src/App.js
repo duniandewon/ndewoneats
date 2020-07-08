@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
+/** UI Context */
+import { UIState } from './context/ui/UiState';
+
 /** Layout */
 import Main from './layout/Main';
 import Header from './layout/Header';
@@ -22,15 +25,17 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Header />
-        <Main>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/menu' component={Menu} />
-            <Route path='/login' component={Login} />
-          </Switch>
-        </Main>
-        <Footer />
+        <UIState>
+          <Header />
+          <Main>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/menu' component={Menu} />
+              <Route path='/login' component={Login} />
+            </Switch>
+          </Main>
+          <Footer />
+        </UIState>
       </Router>
     </Provider>
   );

@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-import { GET_PRODUCTS_SUCCESS, GET_PRODUCTS_FAIL, SET_LOADING } from '../types';
+import {
+  GET_PRODUCTS_SUCCESS,
+  GET_PRODUCTS_FAIL,
+  SET_LOADING,
+  GET_PRODUCT,
+} from '../types';
 
 export const getProducts = () => async (dispatch) => {
   try {
@@ -13,6 +18,9 @@ export const getProducts = () => async (dispatch) => {
     dispatch({ type: GET_PRODUCTS_FAIL, payload: err.response.data.msg });
   }
 };
+
+export const getProductDetail = (product) => (dispatch) =>
+  dispatch({ type: GET_PRODUCT, payload: product });
 
 export const setLoading = () => (dispatch) => {
   dispatch({ type: SET_LOADING });
