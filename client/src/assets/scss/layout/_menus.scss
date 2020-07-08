@@ -1,0 +1,12 @@
+.menus {
+  @extend %mb-3;
+  @extend %flex-space-between;
+  flex-wrap: wrap;
+
+  .menu {
+    width: 35rem;
+    text-align: center;
+    margin: 0rem auto 2rem;
+    display: block;
+  }
+}

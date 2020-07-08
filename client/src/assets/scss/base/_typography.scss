@@ -1,0 +1,29 @@
+.section-title {
+  @extend %my-2;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000;
+  letter-spacing: 2px;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 1rem;
+    margin: 1rem auto 0;
+    border-radius: 4rem;
+    background-color: $main-color;
+  }
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
