@@ -2,9 +2,10 @@ import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadUser } from '../../redux/actions/authActions';
+import { getProducts } from '../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
 
-const Home = ({ loadUser }) => {
+const Home = ({ loadUser, getProducts }) => {
   const links = [
     'promo',
     'pizza',
@@ -18,6 +19,7 @@ const Home = ({ loadUser }) => {
 
   useEffect(() => {
     loadUser();
+    getProducts();
     // eslint-disable-next-line
   }, []);
 
@@ -46,6 +48,7 @@ const Home = ({ loadUser }) => {
 
 Home.propTypes = {
   loadUser: PropTypes.func.isRequired,
+  getProducts: PropTypes.func.isRequired,
 };
 
-export default connect(null, { loadUser })(Home);
+export default connect(null, { loadUser, getProducts })(Home);
