@@ -28,7 +28,7 @@ const Home = ({ loadUser, getProducts }) => {
       <h1 className='section-title'>Our menu</h1>
       <div className='menus'>
         {links.map((link) => (
-          <Link to={`/menu/${link}`} className='menu'>
+          <Link key={link} to={`/menu/${link}`} className='menu'>
             <div className='card'>
               <img
                 src='https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
