@@ -12,6 +12,7 @@ import Footer from './layout/Footer';
 
 /** Pages */
 import Home from './pages/main/Home';
+import Menu from './pages/main/Menu';
 import Login from './pages/main/Login';
 
 /** Styles */
@@ -25,6 +26,7 @@ const App = () => {
         <Main>
           <Switch>
             <Route exact path='/' component={Home} />
+            <Route exact path='/menu' component={Menu} />
             <Route exact path='/login' component={Login} />
           </Switch>
         </Main>
