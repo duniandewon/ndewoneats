@@ -1,0 +1,28 @@
+.sidenav {
+  @extend %my-3;
+  width: 20rem;
+
+  &__header {
+    @extend %mb-3;
+  }
+
+  &__item + &__item {
+    margin-top: 1rem;
+  }
+
+  &__link {
+    @extend %py-1;
+    @extend %border-radius-2;
+    display: block;
+    background-color: $dark;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    &.active {
+      background-color: $main-color;
+    }
+  }
+}

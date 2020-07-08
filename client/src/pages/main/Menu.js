@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import { getProducts } from '../../redux/actions/productActions';
 import { loadUser } from '../../redux/actions/authActions';
 
+import SideNav from '../../layout/SideNav';
+import SearchBox from '../../components/SearchBox';
+
 const Menu = ({ loadUser, getProducts }) => {
   const links = [
     { to: '/menu/promo', text: 'promo' },
@@ -24,7 +27,15 @@ const Menu = ({ loadUser, getProducts }) => {
     // eslint-disable-next-line
   }, []);
 
-  return <h1>Menus</h1>;
+  return (
+    <Fragment>
+      <div className='wrapper'>
+        <SideNav links={links}>
+          <SearchBox />
+        </SideNav>
+      </div>
+    </Fragment>
+  );
 };
 
 Menu.propTypes = {
