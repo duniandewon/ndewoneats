@@ -1,0 +1,17 @@
+.product-list {
+  @extend %flex-space-between;
+  @extend %my-3;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  max-width: 35rem;
+  margin: 0 auto 2.5rem;
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 912px) {
+    max-width: 100%;
+  }
+}

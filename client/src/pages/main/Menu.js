@@ -1,15 +1,14 @@
 import React, { useEffect, Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-import { getProducts } from '../../redux/actions/productActions';
-import { loadUser } from '../../redux/actions/authActions';
 
 import SideNav from '../../layout/SideNav';
 import SearchBox from '../../components/SearchBox';
 
-const Menu = ({ loadUser, getProducts }) => {
+import Promo from '../products/Promo';
+import Pizza from '../products/Pizza';
+import Pasta from '../products/Pasta';
+
+const Menu = () => {
   const links = [
     { to: '/menu/promo', text: 'promo' },
     { to: '/menu/pizza', text: 'pizza' },
@@ -21,26 +20,20 @@ const Menu = ({ loadUser, getProducts }) => {
     { to: '/menu/drinks', text: 'drinks' },
   ];
 
-  useEffect(() => {
-    getProducts();
-    loadUser();
-    // eslint-disable-next-line
-  }, []);
-
   return (
     <Fragment>
       <div className='wrapper'>
         <SideNav links={links}>
           <SearchBox />
         </SideNav>
+        <Switch>
+          <Route path='/menu/promo' component={Promo} />
+          <Route path='/menu/pizza' component={Pizza} />
+          <Route path='/menu/pasta' component={Pasta} />
+        </Switch>
       </div>
     </Fragment>
   );
 };
 
-Menu.propTypes = {
-  loadUser: PropTypes.func.isRequired,
-  getProducts: PropTypes.func.isRequired,
-};
-
-export default connect(null, { loadUser, getProducts })(Menu);
+export default Menu;
