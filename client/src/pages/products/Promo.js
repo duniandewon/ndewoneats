@@ -1,27 +1,47 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+/** product actions */
 import {
   getProducts,
   setLoading,
   getProductDetail,
 } from '../../redux/actions/productActions';
+
+/** cart actions */
+import {
+  addToCart,
+  toggleAmount,
+  getSubtotals,
+} from '../../redux/actions/cartActions';
+
+/** auth actions */
 import { loadUser } from '../../redux/actions/authActions';
+
+/** components */
 import Product from '../../components/Product';
 
-const Promo = ({
-  products: { products, loadin },
-  loadUser,
-  getProducts,
-  setLoading,
-  getProductDetail,
-}) => {
+const Promo = (props) => {
+  const {
+    products: { products, loadin },
+    cart,
+    loadUser,
+    getProducts,
+    setLoading,
+    getProductDetail,
+    addToCart,
+    toggleAmount,
+    getSubtotals,
+  } = props;
+
   useEffect(() => {
     setLoading();
     getProducts();
     loadUser();
+    getSubtotals();
     // eslint-disable-next-line
-  }, []);
+  }, [cart.items]);
 
   if (loadin) {
     return <h1>Loading...</h1>;
@@ -36,10 +56,10 @@ const Promo = ({
               <Product
                 key={product._id}
                 product={product}
-                // addToCart={addToCart}
-                // toggleCount={toggleCount}
+                addToCart={addToCart}
+                toggleAmount={toggleAmount}
                 getProductDetail={getProductDetail}
-                // toggleUi={toggleUi}
+                cart={cart}
               />
             )
         )}
@@ -51,10 +71,16 @@ Promo.propTypes = {
   loadUser: PropTypes.func.isRequired,
   getProducts: PropTypes.func.isRequired,
   getProductDetail: PropTypes.func.isRequired,
+  toggleAmount: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired,
+  getSubtotals: PropTypes.func.isRequired,
+  cart: PropTypes.object.isRequired,
+  products: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   products: state.products,
+  cart: state.cart,
 });
 
 export default connect(mapStateToProps, {
@@ -62,4 +88,7 @@ export default connect(mapStateToProps, {
   getProducts,
   setLoading,
   getProductDetail,
+  addToCart,
+  toggleAmount,
+  getSubtotals,
 })(Promo);
