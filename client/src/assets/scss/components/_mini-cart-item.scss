@@ -1,0 +1,24 @@
+.mini-cart-item {
+  @extend %flex-space-between-align-center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid $light;
+  margin-bottom: 1.5rem;
+
+  &__info {
+    display: flex;
+    align-items: center;
+    width: 60%;
+
+    &--img {
+      width: 8rem;
+      margin-right: 20px;
+    }
+
+    &--name {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

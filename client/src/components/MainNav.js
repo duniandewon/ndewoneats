@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import ShoppingCart from '../components/ShoppingCart';
+
 import Logo from '../assets/images/logo.svg';
 
 const MainNav = ({ auth: { isAuth, user } }) => {
@@ -38,9 +40,9 @@ const MainNav = ({ auth: { isAuth, user } }) => {
             </Link>
           )}
         </li>
-        {/* <li className='nav__item'>
+        <li className='nav__item'>
           <ShoppingCart />
-        </li> */}
+        </li>
       </ul>
     </nav>
   );
