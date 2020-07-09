@@ -11,7 +11,7 @@ const Product = (props) => {
 
   const handelOpenModal = () => {
     toggleUi('modal');
-    getProductDetail({ name, description, price, image });
+    getProductDetail(product);
   };
   const AddToCart = (id) => {
     const inCart = cart.items.find((item) => item._id === id);

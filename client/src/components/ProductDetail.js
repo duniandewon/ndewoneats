@@ -1,10 +1,30 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import Modal from '../layout/Modal';
 
+/** product actions */
 import { getProductDetail } from '../redux/actions/productActions';
 
-const ProductDetail = ({ product, getProductDetail }) => {
+/** cart actions */
+import { addToCart, toggleAmount } from '../redux/actions/cartActions';
+
+import Modal from '../layout/Modal';
+
+const ProductDetail = ({
+  items,
+  product,
+  getProductDetail,
+  addToCart,
+  toggleAmount,
+}) => {
+  const AddToCart = (id) => {
+    const inCart = items.find((item) => item._id === id);
+    if (inCart) {
+      toggleAmount(id, 'inc');
+    } else {
+      addToCart(product);
+    }
+  };
+
   return (
     <Fragment>
       {product && (
@@ -23,11 +43,7 @@ const ProductDetail = ({ product, getProductDetail }) => {
               <p>Rp {product.price}</p>
               <button
                 className='btn primary'
-                /* onClick={() =>
-                  product.inCart
-                    ? toggleCount(product.id, 'inc')
-                    : addToCart(product)
-                } */
+                onClick={() => AddToCart(product._id)}
               >
                 Add to cart
               </button>
@@ -41,6 +57,11 @@ const ProductDetail = ({ product, getProductDetail }) => {
 
 const mapStateToProps = (state) => ({
   product: state.products.product,
+  items: state.cart.items,
 });
 
-export default connect(mapStateToProps, { getProductDetail })(ProductDetail);
+export default connect(mapStateToProps, {
+  getProductDetail,
+  addToCart,
+  toggleAmount,
+})(ProductDetail);
