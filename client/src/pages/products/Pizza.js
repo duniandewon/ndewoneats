@@ -24,7 +24,7 @@ import Product from '../../components/Product';
 
 const Pizza = (props) => {
   const {
-    products: { products, loadin },
+    products: { products, loading },
     cart,
     loadUser,
     getProducts,
@@ -43,7 +43,7 @@ const Pizza = (props) => {
     // eslint-disable-next-line
   }, [cart.items]);
 
-  if (loadin) {
+  if (loading) {
     return <h1>Loading...</h1>;
   }
 
