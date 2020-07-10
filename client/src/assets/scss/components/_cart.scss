@@ -1,0 +1,44 @@
+.cart {
+  width: 100%;
+  margin-bottom: 5rem;
+
+  &__header,
+  &__items {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  &__header {
+    &--columns {
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      padding-bottom: 0.8rem;
+      // min-width: 10rem;
+
+      &:last-child {
+        display: inherit;
+      }
+    }
+  }
+
+  &__items {
+    &--columns {
+      padding: 1.5rem 0;
+
+      & > button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+
+      & > img {
+        border-radius: 5px;
+        max-width: 6rem;
+        max-height: 4rem;
+
+        @media (max-width: 912px) {
+          display: none;
+        }
+      }
+    }
+  }
+}
