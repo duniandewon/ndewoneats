@@ -1,0 +1,42 @@
+.dropdown {
+  @extend %mt-1;
+  position: relative;
+
+  &__trigger {
+    @extend %border-radius-2;
+    width: 100%;
+    background-color: $main-color;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 700;
+    font-size: 1.8rem;
+    position: relative;
+    // z-index: 1;
+  }
+
+  & > i {
+    position: absolute;
+    top: 0.1rem;
+    right: 1.5rem;
+    // transform: translateY(-50%);
+    color: #fff;
+    font-size: 4rem;
+    // z-index: 1;
+  }
+
+  &__content {
+    margin-top: 0.5rem;
+    position: absolute;
+    width: 100%;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
