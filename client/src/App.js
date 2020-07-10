@@ -16,6 +16,7 @@ import Footer from './layout/Footer';
 /** Pages */
 import Home from './pages/main/Home';
 import Menu from './pages/main/Menu';
+import Cart from './pages/main/Cart';
 import Login from './pages/main/Login';
 
 /** Components */
@@ -35,6 +36,7 @@ const App = () => {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/menu' component={Menu} />
+              <Route path='/cart' component={Cart} />
               <Route path='/login' component={Login} />
             </Switch>
           </Main>

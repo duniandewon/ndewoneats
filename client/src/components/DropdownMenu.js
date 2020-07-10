@@ -13,7 +13,7 @@ const DropdownMenu = (props) => {
     const current = menu.split('/')[2];
     setDropdown(current);
     // eslint-disable-next-line
-  }, [props.history.location]);
+  }, [history.location]);
 
   return (
     <div className='dropdown hide-on-desktop'>
