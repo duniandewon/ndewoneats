@@ -18,6 +18,9 @@ import Home from './pages/main/Home';
 import Menu from './pages/main/Menu';
 import Login from './pages/main/Login';
 
+/** Components */
+import Drawer from './components/Drawer';
+
 /** Styles */
 import './assets/scss/styles.scss';
 
@@ -27,6 +30,7 @@ const App = () => {
       <Router>
         <UIState>
           <Header />
+          <Drawer />
           <Main>
             <Switch>
               <Route exact path='/' component={Home} />

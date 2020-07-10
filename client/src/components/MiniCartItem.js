@@ -10,7 +10,7 @@ const MiniCartItem = ({ item, withImage }) => {
             <img src={image} />
           </div>
         )}
-        <p className='mini-cart-item__info--name'>{name}</p>
+        <p className='mini-cart-item__info--name'>{name.toUpperCase()}</p>
       </div>
       <p className='mini-cart-item__amount'>x {count}</p>
       <div className='mini-cart-item__total'>Rp. {price}</div>

@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { uiContext } from '../context/ui/UiState';
 
 import ShoppingCart from '../components/ShoppingCart';
 
 import Logo from '../assets/images/logo.svg';
 
 const MainNav = ({ auth: { isAuth, user } }) => {
+  const { toggleUi } = useContext(uiContext);
+
   return (
     <nav className='main-nav container'>
-      <button className='drawer-toggler hide-on-desktop'>
+      <button
+        className='drawer-toggler hide-on-desktop'
+        onClick={() => toggleUi('drawer')}
+      >
         <i className='material-icons'>menu</i>
       </button>
       <ul className='nav hide-on-mobile'>
