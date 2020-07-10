@@ -1,0 +1,17 @@
+.cart-amount-toggler {
+  @extend %flex-space-between;
+  @extend %border-radius-1;
+  align-items: center;
+  margin: 0 auto;
+  width: 7rem;
+  border: 1px solid $main-color;
+  padding: 0.5rem;
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    outline: none;
+    cursor: pointer;
+  }
+}
