@@ -1,0 +1,48 @@
+.steps-nav {
+  @extend %flex-space-between;
+  @extend %border-radius-1;
+  @extend %my-2;
+  background-color: #ffcdd2;
+  text-align: center;
+  overflow: hidden;
+
+  &__item {
+    display: block;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:first-child.active {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &.active {
+      position: relative;
+      background-color: $main-color;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        transform: none;
+        border-top: 25px solid transparent;
+        border-left: 25px solid $main-color;
+        border-bottom: 25px solid transparent;
+        top: -2px;
+        right: -25px;
+
+        @media (max-width: 490px) {
+          border-left: 15px solid $main-color;
+          right: -15px;
+        }
+      }
+    }
+  }
+}
