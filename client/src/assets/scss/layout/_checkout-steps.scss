@@ -2,7 +2,7 @@
   @extend %boxShadow-1;
   @extend %border-radius-2;
   display: flex;
-  margin: 3rem auto;
+  margin: 4.5rem auto;
   width: 100%;
 
   .note {
@@ -12,6 +12,9 @@
   .left,
   .right {
     padding: 2rem 2.5rem;
+  }
+
+  .left {
     border-right: 1px solid #e0e0e0;
   }
 
@@ -49,15 +52,39 @@
         text-align: center;
       }
     }
+
+    @media (max-width: 912px) {
+      .left,
+      .right {
+        width: 100%;
+      }
+    }
+  }
+
+  &.delivery-info {
+    .left {
+      width: 40%;
+    }
+
+    .right {
+      width: 60%;
+    }
+
+    @media (max-width: 912px) {
+      .left,
+      .right {
+        width: 100%;
+      }
+    }
   }
 
   @media (max-width: 912px) {
     flex-direction: column;
 
-    .left,
-    .right {
-      width: 100%;
-    }
+    // .left,
+    // .right {
+    //   width: 100%;
+    // }
 
     .left {
       border: none;
