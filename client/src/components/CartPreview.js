@@ -19,7 +19,7 @@ const CartPreview = ({ cart, auth }) => {
         <Fragment>
           {/* Show if cart length > 0 and total > 75K */}
           {items.length > 0 && subtotal > 75000 && (
-            <Link to='/menu/promo' class='link'>
+            <Link to='/menu/promo' className='link'>
               Continue Shopping
             </Link>
           )}

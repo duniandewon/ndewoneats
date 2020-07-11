@@ -11,7 +11,7 @@ const initialState = {
   items: [],
   subtotal: 0,
   amount: 0,
-  shippingAdress: '',
+  shippingAddress: '',
 };
 
 export default (state = initialState, action) => {
@@ -59,13 +59,19 @@ export default (state = initialState, action) => {
         }),
       };
 
+    case SET_SHIPPING:
+      return {
+        ...state,
+        shippingAddress: action.payload,
+      };
+
     case CLEAR_CART:
       return {
         ...state,
         items: null,
         subtotal: 0,
         amount: 0,
-        shippingAdress: '',
+        shippingAddress: '',
       };
 
     default:
