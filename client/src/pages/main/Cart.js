@@ -9,6 +9,7 @@ import { loadUser } from '../../redux/actions/authActions';
 import CheckoutSteps from '../../layout/CheckoutSteps';
 import CartPreview from '../../components/CartPreview';
 import DeliveryInfo from '../../components/DeliveryInfo';
+import PaymentInfo from '../../components/PaymentInfo';
 
 const Cart = ({
   items,
@@ -39,6 +40,7 @@ const Cart = ({
     <CheckoutSteps steps={steps}>
       <CartPreview />
       <DeliveryInfo />
+      <PaymentInfo />
     </CheckoutSteps>
   );
 };

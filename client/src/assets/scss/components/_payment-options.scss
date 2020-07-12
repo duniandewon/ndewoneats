@@ -1,0 +1,41 @@
+.payment-options {
+  @extend %my-1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.payment-option {
+  border: 1px solid $main-color;
+  border-radius: 5px;
+  position: relative;
+
+  label {
+    display: block;
+    cursor: pointer;
+    padding: 0.8rem 0.5rem;
+  }
+
+  & + & {
+    margin-left: 2rem;
+  }
+  .material-icons {
+    display: none;
+    position: absolute;
+    top: -1rem;
+    right: -0.5rem;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.3rem;
+    background-color: $main-color;
+  }
+
+  input {
+    display: none;
+
+    &:checked + .material-icons {
+      display: block;
+    }
+  }
+}

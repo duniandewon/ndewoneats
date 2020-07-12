@@ -1,0 +1,18 @@
+.payment-summary {
+  @extend %flex-space-between;
+  flex-wrap: wrap;
+
+  &__item {
+    margin-bottom: 0.5rem;
+
+    &.total {
+      font-size: 2rem;
+      border: none;
+      margin-top: 0.8rem;
+    }
+
+    &:nth-child(odd) {
+      width: 70%;
+    }
+  }
+}
