@@ -39,7 +39,9 @@ const CartPreview = ({ cart, auth }) => {
         <h2>Rp. {subtotal}</h2>
         <Fragment>
           {subtotal < 75000 && (
-            <p>You should have an order with minumum amount of Rp 75,000.</p>
+            <p className='note'>
+              You should have an order with minumum amount of Rp 75,000.
+            </p>
           )}
         </Fragment>
         <Fragment>
