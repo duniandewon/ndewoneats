@@ -25,10 +25,14 @@ const ProductDetail = ({
     }
   };
 
+  const closeModal = () => {
+    getProductDetail(null);
+  };
+
   return (
     <Fragment>
       {product && (
-        <Modal getProductDetail={getProductDetail}>
+        <Modal modalOnClose={closeModal} closeBtn>
           <div className='product-detail'>
             <img
               src={product.image}

@@ -1,28 +1,32 @@
 import React, { useContext } from 'react';
-import Modal from 'react-modal';
+import PropTypes from 'prop-types';
+import MyModal from 'react-modal';
 
 import { uiContext } from '../context/ui/UiState';
 
-export default ({ getProductDetail, children }) => {
+const Modal = ({ children, modalOnClose, closeBtn }) => {
   const { modal, toggleUi } = useContext(uiContext);
 
-  const closeModal = () => {
-    getProductDetail(null);
-    toggleUi('modal');
-  };
-
   return (
-    <Modal
+    <MyModal
       isOpen={modal}
       closeTimeoutMS={200}
-      contentLabel='product detail'
       className='modal'
-      onRequestClose={closeModal}
+      onAfterClose={modalOnClose}
     >
-      <button className='modal-close' onClick={closeModal}>
-        <i className='material-icons'>close</i>
-      </button>
+      {closeBtn && (
+        <button className='modal-close' onClick={() => toggleUi('modal')}>
+          <i className='material-icons'>close</i>
+        </button>
+      )}
       {children}
-    </Modal>
+    </MyModal>
   );
 };
+
+Modal.propTypes = {
+  closeBtn: PropTypes.bool,
+  modalOnClose: PropTypes.func,
+};
+
+export default Modal;
