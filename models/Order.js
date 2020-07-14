@@ -8,14 +8,16 @@ const OrderSchema = new Schema({
   },
   items: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'products',
+      type: Object,
     },
   ],
   total: {
     type: String,
   },
-  shippingAddres: {
+  shippingAddress: {
+    type: String,
+  },
+  paymentMethod: {
     type: String,
   },
   date: {
