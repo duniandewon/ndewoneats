@@ -1,11 +1,18 @@
 import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { loadUser } from '../../redux/actions/authActions';
-import { getProducts } from '../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
 
-const Home = ({ loadUser, getProducts }) => {
+/** Auth Actions */
+import { loadUser } from '../../redux/actions/authActions';
+
+/** Product Actions */
+import { getProducts } from '../../redux/actions/productActions';
+
+/** Order Actions */
+import { getOrders } from '../../redux/actions/orderActions';
+
+const Home = ({ loadUser, getProducts, getOrders }) => {
   const links = [
     'promo',
     'pizza',
@@ -20,6 +27,7 @@ const Home = ({ loadUser, getProducts }) => {
   useEffect(() => {
     loadUser();
     getProducts();
+    getOrders();
     // eslint-disable-next-line
   }, []);
 
@@ -49,6 +57,7 @@ const Home = ({ loadUser, getProducts }) => {
 Home.propTypes = {
   loadUser: PropTypes.func.isRequired,
   getProducts: PropTypes.func.isRequired,
+  getOrders: PropTypes.func.isRequired,
 };
 
-export default connect(null, { loadUser, getProducts })(Home);
+export default connect(null, { loadUser, getProducts, getOrders })(Home);
