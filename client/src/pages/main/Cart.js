@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -10,6 +10,8 @@ import CheckoutSteps from '../../layout/CheckoutSteps';
 import CartPreview from '../../components/CartPreview';
 import DeliveryInfo from '../../components/DeliveryInfo';
 import PaymentInfo from '../../components/PaymentInfo';
+
+import ThanksForShopping from '../../components/ThanksForShopping';
 
 const Cart = ({
   items,
@@ -37,11 +39,14 @@ const Cart = ({
     return <h1>Loading...</h1>;
   }
   return (
-    <CheckoutSteps steps={steps}>
-      <CartPreview />
-      <DeliveryInfo />
-      <PaymentInfo />
-    </CheckoutSteps>
+    <Fragment>
+      <ThanksForShopping />
+      <CheckoutSteps steps={steps}>
+        <CartPreview />
+        <DeliveryInfo />
+        <PaymentInfo />
+      </CheckoutSteps>
+    </Fragment>
   );
 };
 

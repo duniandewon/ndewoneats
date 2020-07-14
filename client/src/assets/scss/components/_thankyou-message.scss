@@ -1,0 +1,14 @@
+.thankyou-message {
+  padding: 5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+
+  &__text {
+    @extend %mb-2;
+  }
+
+  .btn {
+    margin-bottom: 1rem;
+  }
+}

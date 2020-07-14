@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import { uiContext } from '../context/ui/UiState';
+
+import { placeOrder } from '../redux/actions/orderActions';
+import { clearCart } from '../redux/actions/cartActions';
 
 import MiniCartItem from './MiniCartItem';
 import PaymentSummary from './PaymentSummary';
 import PaymentOptions from './PaymentOptions';
 
 const PaymentInfo = (props) => {
-  const { items, subtotal, shippingAddress } = props;
+  const { items, subtotal, shippingAddress, placeOrder } = props;
+
+  const { toggleUi } = useContext(uiContext);
 
   const [Order, setOrder] = useState({
     total: 0,
@@ -16,6 +23,11 @@ const PaymentInfo = (props) => {
   });
 
   const { total, ppn, paymentMethod } = Order;
+
+  const createOrder = () => {
+    toggleUi('modal');
+    placeOrder({ items, shippingAddress, total, paymentMethod });
+  };
 
   useEffect(() => {
     const ppn = subtotal / 10;
@@ -44,13 +56,7 @@ const PaymentInfo = (props) => {
           <h2>pay with:</h2>
           <PaymentOptions Order={Order} setOrder={setOrder} />
         </div>
-        <a
-          href='#!'
-          className='btn block primary'
-          onClick={() =>
-            console.log({ items, shippingAddress, total, paymentMethod })
-          }
-        >
+        <a href='#!' className='btn block primary' onClick={createOrder}>
           Place my oreder
         </a>
       </div>
@@ -64,4 +70,4 @@ const mapStateToProps = (state) => ({
   shippingAddress: state.cart.shippingAddress,
 });
 
-export default connect(mapStateToProps)(PaymentInfo);
+export default connect(mapStateToProps, { placeOrder, clearCart })(PaymentInfo);

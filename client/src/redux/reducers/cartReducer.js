@@ -68,7 +68,7 @@ export default (state = initialState, action) => {
     case CLEAR_CART:
       return {
         ...state,
-        items: null,
+        items: [],
         subtotal: 0,
         amount: 0,
         shippingAddress: '',
