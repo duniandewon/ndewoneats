@@ -8,7 +8,17 @@ import {
   SET_LOADING,
 } from '../types';
 
-// @TODO: create getOrders
+export const getOrders = () => async (dispatch) => {
+  try {
+    const res = await axios.get('/api/orders');
+    console.log(res.data);
+
+    dispatch({ type: GET_ORDERS_SUCCESS, payload: res.data });
+  } catch (err) {
+    console.error(err);
+    dispatch({ type: GET_ORDERS_FAIL, payload: err.response.data.msg });
+  }
+};
 
 export const placeOrder = (order) => async (dispatch) => {
   const config = {
@@ -19,8 +29,9 @@ export const placeOrder = (order) => async (dispatch) => {
 
   try {
     setLoading();
-    // const data = await axios.post('/api/orders', order, config);
-    dispatch({ type: PLACE_ORDER_SUCCESS, payload: order });
+    const data = await axios.post('/api/orders', order, config);
+    console.log(order);
+    dispatch({ type: PLACE_ORDER_SUCCESS, payload: data });
   } catch (err) {
     console.error(err);
     dispatch({ type: PLACE_ORDER_FAIL, payload: err.response.data.msg });
