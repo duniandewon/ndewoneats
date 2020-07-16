@@ -32,7 +32,7 @@ const Drawer = ({ isAuth }) => {
         <Fragment>
           <div className='drawer__item'>
             <Link
-              to='/my-account/orders'
+              to='/account/orders'
               className='drawer__link'
               onClick={() => toggleUi('drawer')}
             >

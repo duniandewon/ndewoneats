@@ -37,7 +37,7 @@ const MainNav = ({ auth: { isAuth, user } }) => {
       <ul className='nav'>
         <li className='nav__item'>
           {isAuth && user ? (
-            <Link to='/my-account/orders' className='nav__link hide-on-mobile'>
+            <Link to='/account/orders' className='nav__link hide-on-mobile'>
               my acount
             </Link>
           ) : (
