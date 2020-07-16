@@ -18,6 +18,7 @@
 @import './layout/modal';
 @import './layout/backdrop';
 @import './layout/checkout-steps';
+@import './layout/orders-list';
 
 @import './components/nav';
 @import './components/logo';
@@ -38,3 +39,4 @@
 @import './components/payment-summary';
 @import './components/payment-options';
 @import './components/thankyou-message';
+@import './components/order';

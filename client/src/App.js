@@ -18,6 +18,7 @@ import Home from './pages/main/Home';
 import Menu from './pages/main/Menu';
 import Cart from './pages/main/Cart';
 import Login from './pages/main/Login';
+import Account from './pages/main/Account';
 
 /** Components */
 import Drawer from './components/Drawer';
@@ -37,6 +38,7 @@ const App = () => {
               <Route exact path='/' component={Home} />
               <Route path='/menu' component={Menu} />
               <Route path='/cart' component={Cart} />
+              <Route path='/account' component={Account} />
               <Route path='/login' component={Login} />
             </Switch>
           </Main>

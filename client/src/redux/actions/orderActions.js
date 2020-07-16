@@ -10,6 +10,7 @@ import {
 
 export const getOrders = () => async (dispatch) => {
   try {
+    setLoading();
     const res = await axios.get('/api/orders');
     console.log(res.data);
 
@@ -38,4 +39,4 @@ export const placeOrder = (order) => async (dispatch) => {
   }
 };
 
-const setLoading = () => (dispatch) => dispatch({ type: SET_LOADING });
+export const setLoading = () => (dispatch) => dispatch({ type: SET_LOADING });
