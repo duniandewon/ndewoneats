@@ -8,6 +8,7 @@ import {
   AUTH_ERROR,
   CLEAR_ERRORS,
   SET_LOADING,
+  LOGOUT,
 } from '../types';
 
 export const loadUser = () => async (dispatch) => {
@@ -53,6 +54,18 @@ export const registerUser = (formData) => async (dispatch) => {
   } catch (err) {
     console.log(err.response.data.msg);
     dispatch({ type: REGISTER_FAIL, payload: err.response.data.msg });
+  }
+};
+
+export const logout = () => async (dispatch) => {
+  try {
+    setLoading();
+    const res = await axios.get('/api/auth/logout');
+    console.log(res.data);
+    dispatch({ type: LOGOUT });
+  } catch (err) {
+    console.log(err.response.data.msg);
+    dispatch({ type: logout, payload: err.response.data.msg });
   }
 };
 
