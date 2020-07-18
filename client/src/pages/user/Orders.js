@@ -29,7 +29,7 @@ const Orders = (props) => {
   return (
     <div className='orders-list'>
       {orders.map((order) => (
-        <div className='card order'>
+        <div className='card order' key={order._id}>
           <div className='order__header'>
             <h3 className='order__date'>
               Date:{' '}
