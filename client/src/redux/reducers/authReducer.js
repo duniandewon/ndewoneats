@@ -20,12 +20,20 @@ const intialState = {
 export default (state = intialState, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
-    case REGISTER_SUCCESS:
     case USER_LOADED:
       return {
         ...state,
         user: action.payload,
         isAuth: true,
+        loading: false,
+        error: null,
+      };
+
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+        isAuth: false,
         loading: false,
         error: null,
       };
