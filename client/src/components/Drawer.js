@@ -41,7 +41,7 @@ const Drawer = ({ isAuth }) => {
           </div>
           <div className='drawer__item'>
             <Link
-              to='/'
+              to='/logout'
               className='drawer__link'
               onClick={() => {
                 toggleUi('drawer');
