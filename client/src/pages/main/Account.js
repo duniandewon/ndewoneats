@@ -5,12 +5,13 @@ import { Switch } from 'react-router-dom';
 
 /** Pages */
 import Orders from '../user/Orders';
-import Logout from '../main/Logout';
 
 /** Private route */
 import PrivateRoute from '../../routing/PrivateRoute';
 
+/** Components */
 import SideNav from '../../layout/SideNav';
+import DropdownMenu from '../../components/DropdownMenu';
 
 const Account = (props) => {
   const { loading, user } = props;
@@ -28,6 +29,7 @@ const Account = (props) => {
           <h1>{user.name}</h1>
         </SideNav>
       )}
+      <DropdownMenu links={links} history={props.history} />
       <Switch>
         <PrivateRoute path='/account/orders' component={Orders} />
       </Switch>
