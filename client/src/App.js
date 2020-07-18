@@ -21,6 +21,7 @@ import Home from './pages/main/Home';
 import Menu from './pages/main/Menu';
 import Cart from './pages/main/Cart';
 import Login from './pages/main/Login';
+import Register from './pages/main/Register';
 import Account from './pages/main/Account';
 import Logout from './pages/main/Logout';
 
@@ -44,6 +45,7 @@ const App = () => {
               <Route path='/cart' component={Cart} />
               <Route path='/account' component={Account} />
               <Route path='/login' component={Login} />
+              <Route path='/register' component={Register} />
               <PrivateRoute path='/logout' component={Logout} />
             </Switch>
           </Main>
