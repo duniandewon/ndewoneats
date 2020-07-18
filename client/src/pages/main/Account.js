@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 /** Pages */
 import Orders from '../user/Orders';
+import Logout from '../main/Logout';
+
+/** Private route */
+import PrivateRoute from '../../routing/PrivateRoute';
 
 import SideNav from '../../layout/SideNav';
 
@@ -25,7 +29,7 @@ const Account = (props) => {
         </SideNav>
       )}
       <Switch>
-        <Route path='/account/orders' component={Orders} />
+        <PrivateRoute path='/account/orders' component={Orders} />
       </Switch>
     </div>
   );

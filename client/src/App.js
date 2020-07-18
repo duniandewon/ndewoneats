@@ -8,6 +8,9 @@ import store from './store';
 /** UI Context */
 import { UIState } from './context/ui/UiState';
 
+/** Private Route */
+import PrivateRoute from './routing/PrivateRoute';
+
 /** Layout */
 import Main from './layout/Main';
 import Header from './layout/Header';
@@ -19,6 +22,7 @@ import Menu from './pages/main/Menu';
 import Cart from './pages/main/Cart';
 import Login from './pages/main/Login';
 import Account from './pages/main/Account';
+import Logout from './pages/main/Logout';
 
 /** Components */
 import Drawer from './components/Drawer';
@@ -40,6 +44,7 @@ const App = () => {
               <Route path='/cart' component={Cart} />
               <Route path='/account' component={Account} />
               <Route path='/login' component={Login} />
+              <PrivateRoute path='/logout' component={Logout} />
             </Switch>
           </Main>
           <Footer />
