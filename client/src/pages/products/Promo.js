@@ -39,6 +39,10 @@ const Promo = (props) => {
     setLoading();
     getProducts();
     loadUser();
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
     getSubtotals();
     // eslint-disable-next-line
   }, [cart.items]);
