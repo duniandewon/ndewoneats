@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
@@ -6,10 +10,6 @@ const connectDB = require('./config/database');
 const MongoStore = require('connect-mongo')(session);
 const PORT = process.env.PORT || 5000;
 const path = require('path');
-
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
 
 /**
  * ----------------- GENERAL SETUP ------------------------
