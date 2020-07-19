@@ -4,6 +4,8 @@ import MyModal from 'react-modal';
 
 import { uiContext } from '../context/ui/UiState';
 
+MyModal.setAppElement('#root');
+
 const Modal = ({ children, modalOnClose, closeBtn }) => {
   const { modal, toggleUi } = useContext(uiContext);
 
