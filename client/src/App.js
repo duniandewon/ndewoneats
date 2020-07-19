@@ -29,7 +29,7 @@ import Logout from './pages/main/Logout';
 import Drawer from './components/Drawer';
 
 /** Styles */
-import './assets/scss/styles.scss';
+import './styles.css';
 
 const App = () => {
   return (
