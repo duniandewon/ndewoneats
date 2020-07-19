@@ -7,6 +7,10 @@ const MongoStore = require('connect-mongo')(session);
 const PORT = process.env.PORT || 5000;
 const path = require('path');
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 /**
  * ----------------- GENERAL SETUP ------------------------
  */
